@@ -1,8 +1,6 @@
 import React from 'react';
 import SuruList from './components/SuruList';
-import InsertItem from './components/SuruItem';
-
-// import InsertList from './components/InsertList';
+import InsertBtn from './components/InsertBtn';
 import {
     BrowserRouter as Router,
     Route,
@@ -12,25 +10,45 @@ import {
 class SuruBox extends React.Component{
     constructor(props){
         super(props);
-        this.state ={list: '123'};        
+        this.model = [
+            {
+                title:'2017.12.1',
+                suruItem:[
+                    {
+                        title: '唱歌',
+                        content:['http://img.hb.aicdn.com/df8474fdf28db472c6b3e63d0854f62e81033c698cd1-hP5Kj9_sq320','明天会更好']
+                    }
+                ]
+            },
+            {
+                title:'2017.12.2',
+                suruItem:[
+                    {title: '画画',content:['//img.hb.aicdn.com/13f5dbb1d0ce9a39cba48ab9a1e7667ca5fe9529b724-DECkNq_sq320','小动物']},
+                    {title: '画画',content:['//img.hb.aicdn.com/13f5dbb1d0ce9a39cba48ab9a1e7667ca5fe9529b724-DECkNq_sq320','小动物']}
+                ]
+            } 
+        ];
+        this.state ={list:this.model}; 
+        
     }
     render(){
         let boxShow;
         if(this.state.list){
             boxShow = (
                 <div>
-                    <SuruList></SuruList>
-                    <InsertItem size="Large"></InsertItem>
+                    <InsertBtn size="Small"></InsertBtn>
+                    <SuruList list={this.state.list}></SuruList>
+                    <InsertBtn size="Small"></InsertBtn>
                 </div>
             )
         }
         else{
             boxShow = (
-                <InsertItem size="Small"></InsertItem>
+                <InsertBtn size="Large"></InsertBtn>
             )
         }
         return(
-            <div>
+            <div className="suruList">
                 {boxShow}
             </div>
             // <SuruList></SuruList>

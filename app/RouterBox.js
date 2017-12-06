@@ -1,6 +1,6 @@
 
 import React from 'react'
-import InsertItem from './SuruBox/Components/InsertItem'
+import InsertBtn from './SuruBox/Components/InsertBtn'
 import SuruBox from './SuruBox/SuruBox'
 import {
   BrowserRouter as Router,
@@ -42,7 +42,7 @@ const RouterBox = () =>(
             {/* <div>
                 <Link to="/insert">新增</Link>
             </div> */}
-            <Route path="/insert" component={InsertItem} />
+            <Route path="/insert" component={InsertBtn} />
         </div>
     </Router>
 )

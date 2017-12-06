@@ -1,9 +1,9 @@
 import React from 'react'
 
-class InsertItem extends React.Component{
+class InsertBtn extends React.Component{
     render(){
         return(
-            <div id="inserBtn" className={this.props.size}>
+            <div id="insertBtn" className={this.props.size}>
                 <span></span>
                 <span></span>
             </div>
@@ -11,4 +11,4 @@ class InsertItem extends React.Component{
     }
 }
 
-export default InsertItem
+export default InsertBtn

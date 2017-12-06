@@ -1,0 +1,77 @@
+html {
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+  }
+@mixin insertBtn($size){
+    width: $size;
+    height: $size;
+
+    span:nth-child(1){
+        display: inline-block;
+        border-top:1px solid #fff;
+        width: $size;
+        position: absolute;
+        top: $size/2;
+    }
+    span:nth-child(2){
+        display: inline-block;
+        border-left: 1px solid #fff;
+        height: $size;
+        position: absolute;
+        left: $size/2
+    }
+}
+#insertBtn.Small{
+    position: relative;
+    margin: 0.5rem auto;
+    @include insertBtn(1rem);
+}
+
+#insertBtn.Large{
+    // width: 6rem;
+    // height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.5rem;
+    margin-left: -2.5rem;
+    @include insertBtn(5rem)
+    // background: #fff;
+}
+
+.suruItem{
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.77rem;
+    color: #8e8e8e;
+    padding-left: 0.5rem;
+    border: 1px solid #8e8e8e;
+    position: relative;
+}
+.itemColor{
+    width: 0.8rem;
+    height: 0.8rem;
+    background: #3498DB;
+    border-radius: 50%;
+    position: absolute;
+    right: 40px;
+    top: 0.65rem;
+    transition: right 0s,left 0.5s;;
+}

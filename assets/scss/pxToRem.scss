@@ -1,0 +1,6 @@
+@charset "UTF-8";
+//默认根字体大小
+$base-font-size:39px;
+@function pxToRem($px){
+  @return $px / $base-font-size * 1rem;
+}
