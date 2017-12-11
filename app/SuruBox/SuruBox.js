@@ -26,18 +26,31 @@ class SuruBox extends React.Component{
                     {title: '画画',content:['//img.hb.aicdn.com/13f5dbb1d0ce9a39cba48ab9a1e7667ca5fe9529b724-DECkNq_sq320','小动物']},
                     {title: '画画',content:['//img.hb.aicdn.com/13f5dbb1d0ce9a39cba48ab9a1e7667ca5fe9529b724-DECkNq_sq320','小动物']}
                 ]
+            },
+            {
+                title:'2017.12.3',
+                suruItem:[
+                    {title: '画画',content:['//img.hb.aicdn.com/13f5dbb1d0ce9a39cba48ab9a1e7667ca5fe9529b724-DECkNq_sq320','小动物']},
+                    {title: '画画',content:['//img.hb.aicdn.com/13f5dbb1d0ce9a39cba48ab9a1e7667ca5fe9529b724-DECkNq_sq320','小动物']}
+                ]
             } 
         ];
         this.state ={list:this.model}; 
-        
+        this.listOperate = this.listOperate.bind(this);
+    }
+    listOperate(id){
+        let list = this.state.list;
+        list.splice(id,1);
+        this.setState({list:list})
     }
     render(){
         let boxShow;
-        if(this.state.list){
+        // debugger;
+        if(this.state.list[0]){
             boxShow = (
                 <div>
                     <InsertBtn size="Small"></InsertBtn>
-                    <SuruList list={this.state.list}></SuruList>
+                    <SuruList list={this.state.list} listOperate={this.listOperate}></SuruList>
                     <InsertBtn size="Small"></InsertBtn>
                 </div>
             )

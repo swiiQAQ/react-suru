@@ -52,6 +52,10 @@ module.exports = {
                 test: /\.(woff|svg|eot|ttf)?$/,
                 use: ['url-loader']
             },  
+            {
+                test: /\.json$/,
+                use: 'json-loader'
+            }
         ]
     },
     // externals: {
@@ -62,7 +66,10 @@ module.exports = {
         contentBase: "./public",
         historyApiFallback: true,
         inline: true,
-        port: 8001
+        port: 8001,
+        proxy:{
+            '/api':'htto://localhost:8001'
+        }
     },
     plugins: [
         require('autoprefixer')

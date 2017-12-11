@@ -1,0 +1,21 @@
+.backBox{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    span:nth-child(1){
+        width: 1rem;
+        border-top: 1px solid #fff;
+        position: absolute;
+        transform: rotate(-45deg);
+        top: 0.5rem;
+        left: -0.5rem;
+    }
+    span:nth-child(2){
+        height: 1rem;
+        border-left: 1px solid #fff;
+        position: absolute;
+        transform: rotate(-45deg)
+    }
+}

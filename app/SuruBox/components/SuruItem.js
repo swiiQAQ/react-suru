@@ -16,11 +16,13 @@ class SuruItem extends React.Component{
         
     }
     startFunc(e){
+        let colorCircle = e.target.getElementsByClassName("itemColor")[0];
+        colorCircle.classList.remove('itemColorBack');
+        colorCircle.classList.remove('itemColorDelete');
         
         let touch = e.targetTouches[0];
         this.startX = touch.pageX;
         this.startY = touch.pageY;
-        let colorCircle = e.target.getElementsByClassName("itemColor")[0];
         this.right = window.getComputedStyle(colorCircle,false)['right'];
     }
     moveFunc(e){
@@ -32,23 +34,31 @@ class SuruItem extends React.Component{
         
         let colorCircle = e.target.getElementsByClassName("itemColor")[0];
         colorCircle.style.right = this.right.match(/[0-9]+/g) - this.distanceX +"px";
-        if(-this.distanceX>this.startX/3){
+        if(-this.distanceX>this.startX/2){
             colorCircle.style.background = '#C0392B';
+        }
+        else{
+            colorCircle.style.background = '#3498DB';
         }
     }
     endFunc(e){
         let colorCircle = e.target.getElementsByClassName("itemColor")[0];
-        if(-this.distanceX>this.startX/3){
-            colorCircle.style.left = '1rem';
+        let _this = this;
+        if(-this.distanceX>this.startX/2){
+            colorCircle.classList.add('itemColorDelete');
+            colorCircle.style.right = '100%';
+            setTimeout(function() {
+                _this.props.listOperate(_this.props.id);
+            }, 200);
         }
         else{
+            colorCircle.classList.add('itemColorBack');
             colorCircle.style.right = '40px';
-            colorCircle.style.background = '#3498DB';
         }
     }
     render(){
         return(
-            <div className="suruItem" onTouchStart={this.startFunc} onTouchMove={this.moveFunc} onTouchEnd={this.endFunc}>
+            <div className="suruItem" id={this.props.id} onTouchStart={this.startFunc} onTouchMove={this.moveFunc} onTouchEnd={this.endFunc}>
                 {this.props.title}
                 <span className="itemColor"></span>
             </div>

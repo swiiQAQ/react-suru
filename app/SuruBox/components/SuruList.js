@@ -9,7 +9,7 @@ class SuruList extends React.Component{
 
     render(){
         let list = this.props.list.map((item,index)=>{
-            return <SuruItem title={this.props.list[index].title} key={index} />
+            return <SuruItem title={this.props.list[index].title} key={index} id={index} listOperate={this.props.listOperate} />
         })
         return(
             <div>

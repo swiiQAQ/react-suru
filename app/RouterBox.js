@@ -1,12 +1,16 @@
 
 import React from 'react'
-import InsertBtn from './SuruBox/Components/InsertBtn'
 import SuruBox from './SuruBox/SuruBox'
+import Insert from './insert/insert'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect,
+  Switch,
+  BrowserRouter,exact
 } from 'react-router-dom'
+// import createBrowserHistory from 'history/createBriwserHistory'
 
 // const ParamsExample = () => (
 //   <Router>
@@ -35,14 +39,12 @@ import {
 // const InsertItem = () =>(
 //     <InsertItem></InsertItem>
 // )
+// const history = createBrowserHistory();
 const RouterBox = () =>(
-    <Router path="/">
+    <Router>
         <div>
-            <Router exact path="/" component={SuruBox}/>
-            {/* <div>
-                <Link to="/insert">新增</Link>
-            </div> */}
-            <Route path="/insert" component={InsertBtn} />
+            <Route exact={true} path="/" component={SuruBox}/>
+            <Route path="/insert" component={Insert} />
         </div>
     </Router>
 )
