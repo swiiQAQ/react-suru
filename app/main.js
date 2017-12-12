@@ -5,6 +5,7 @@ import BasicExample from './Basic.js';
 import SuruBox from './SuruBox/SuruBox';
 import RouterBox from './RouterBox';
 import '../assets/scss/SuruBox.scss';
+import '../assets/scss/insert.scss';
 import './autoAdapt.js'
 import {
     BrowserRouter as Router,

@@ -18,39 +18,7 @@
         left: $size/2
     }
 }
-@mixin centerWrap(){
-    // width: $width;
-    // height: $height;
-    position: absolute;
-    left: 50%;
-    height: 50%;
-    // margin-top: $height/2;
-    // margin-left: $width/2;
-    transform: translateX(-50%);
-    transform: translateY(-50%);
-}
-html {
-    box-sizing: border-box;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
-  
-body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #fff;
-}
-  
-  h1, h2, h3, h4, h5, h6, p, ul {
-    margin: 0;
-    padding: 0;
-  }
 
-  body{
-    width: 100%;
-    height: 100%;
-    background: rgb(0, 0, 0);
-  }
 
 #insertBtn.Small{
     position: relative;
@@ -95,9 +63,4 @@ body {
 }
 .itemColorDelete{
     transition: right 0.1s;
-}
-.centerBox{
-    width: 100%;
-    height: 5rem;
-    @include centerWrap();
 }

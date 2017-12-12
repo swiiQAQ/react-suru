@@ -8,7 +8,7 @@ import Back from '../common/back'
 // import json from 'json-loader!color'
 import config from '../config.json';
 
-class Insert extends React.Component{
+class chooseColor extends React.Component{
     constructor(props){
         super(props);
         // this.fetchData = this.fetchData.bind(this);
@@ -16,7 +16,9 @@ class Insert extends React.Component{
             ['#F9ED69','#F08A5D','#B83B5E','#6A2C70'],
             ['#E3FDFD','#CBF1F5','#A6E3E9','#71C9CE'],
             ['#FFCFDF','#FEFDCA','#E0F9B5','#A5DEE5']
-        ]
+        ];
+        this.jumpPage = this.jumpPage.bind(this);
+
     }
     // fetchData(){
     //     fetch('../../jsonData/color.json')
@@ -30,27 +32,43 @@ class Insert extends React.Component{
     //             }
     //         )
     // }
-    
+    jumpPage(color){
+        let path ={
+            pathname: '/insertPlate',
+            state: color
+        }
+        this.props.history.push(path);
+    }
     render(){
         // this.fetchData();
-        const coloRender =(
-            <div className="centerBox">
+        const colorRender =(
+            <div className="centerWrap">
                 {
                     this.color.map((item,index)=>{
-                        return <div className="">{item}</div>
+                        return (
+                            <div onClick={this.jumpPage.bind(this,item)} className="colorCircle" key={index}>
+                                {
+                                    item.map((item,index)=>{
+                                        return(
+                                            <div className="colorItem" style={{backgroundColor:item}} key={index}></div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        )
                     })
                 }
             </div>
         )
         return(
             <div>
-                <Back />
+                <Back history={this.props.history}/>
                 <div>
-                    {coloRender}
+                    {colorRender}
                 </div>
             </div>
         )
     }
 }
 
-export default Insert
+export default chooseColor
