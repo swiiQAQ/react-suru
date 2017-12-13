@@ -15,7 +15,9 @@ class chooseColor extends React.Component{
         this.color=[
             ['#F9ED69','#F08A5D','#B83B5E','#6A2C70'],
             ['#E3FDFD','#CBF1F5','#A6E3E9','#71C9CE'],
-            ['#FFCFDF','#FEFDCA','#E0F9B5','#A5DEE5']
+            ['#FFCFDF','#FEFDCA','#E0F9B5','#A5DEE5'],
+            ['#0C056D','#590D82','#B61AAE','#F25D9C'],
+            ['#1FAB89','#62D2A2','#D7FBE8','#9DF3C4']
         ];
         this.jumpPage = this.jumpPage.bind(this);
 

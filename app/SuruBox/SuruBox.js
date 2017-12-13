@@ -35,7 +35,7 @@ class SuruBox extends React.Component{
                 ]
             } 
         ];
-        this.state ={list:this.model}; 
+        this.state ={list:''}; 
         this.listOperate = this.listOperate.bind(this);
     }
     listOperate(id){
